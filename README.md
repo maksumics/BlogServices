@@ -4,7 +4,7 @@
 #### This application implements basic functions for blog site - CRUD operations. Tested with Postman agent for operations GET, POST, PUT and DELETE. I have developed it in ASP.NET Web API, standard .NET Framework 4.7.2 and EntityFramework 6. Database is not attached becouse approach is code first. In BlogContext class database is called "BlogDatabase", with one migration that will seed some data in databse for testing first without POST request. Database will create on default instance of SQL Server, in my case it is LocalDB. 
 
 ## Instruction for using
-#### When clone project, first need to install some nuget packages that package manager will automaticly detect, then run command update-databse. This will create database "BlogDatabase" and seed some blog posts and tags. After that api is ready for usage. 
+#### When clone project, first need to install some nuget packages that package manager will automaticly detect. If your choice is LocalDB then create folder "App_Data" in BlogServices/BlogServices and run command update-databse. This will create database "BlogDatabase" and seed some blog posts and tags.  In case of SQL Server Express, please uncomment line "13" in web.config - connection string, and edit connection string if needed. Default is "localhost" server, named instance "SQLEXPRESS", and integrated security. After that api is ready for usage.
 ### GET api/posts
 #### Return all posts ordered by most recent.
 ```
