@@ -71,19 +71,23 @@
 #### Create new post, with reques body in following form:
 ```
  {
-    "title": "Title of the post",
-    "description": "A short description",
-    "body": "Content of the article",
-    "tags": ["some", "tags"]
+    "blogPost":{
+        "title": "Title of the post",
+        "description": "A short description",
+        "body": "Content of the article",
+        "tags": ["some", "tags"]
+    }
  }
 ```
 ### PUT api/posts:slug
 #### Send body request as bellow to update post specified via slug. If post cannot be found, as response, status will be not found. Optional parameters is title, description and body.
 ```
  {
-    "title": "Title of the post",
-    "description": "A short description",
-    "body": "Content of the article"
+    "blogPost":{
+        "title": "Title of the post",
+        "description": "A short description",
+        "body": "Content of the article"
+    }
  }
 ```
 ### DELETE api/posts/:slug
