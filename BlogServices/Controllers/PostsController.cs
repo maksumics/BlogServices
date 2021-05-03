@@ -1,12 +1,17 @@
 ﻿using BlogServices.Models;
 using BlogServices.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Metadata.Edm;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
+using System.Web.Helpers;
 using System.Web.Http;
+using System.Web.Http.Controllers;
 
 namespace BlogServices.Controllers
 {
@@ -100,9 +105,11 @@ namespace BlogServices.Controllers
             return Json(data);
         }
         
-        public IHttpActionResult PostArticle(PostViewModel post)
+        public IHttpActionResult PostArticle(dynamic body)
         {
-            if(ModelState.IsValid)
+            string json = body.blogPost.ToString();
+            var  post = JsonConvert.DeserializeObject<PostViewModel>(json);
+            if (ModelState.IsValid)
             {
                 using(var db = new BlogContext())
                 {
@@ -124,9 +131,11 @@ namespace BlogServices.Controllers
         }
 
         [AcceptVerbs("PUT")]
-        public IHttpActionResult UpdatePost(string id, UpdatePostViewModel model)
+        public IHttpActionResult UpdatePost(string id, dynamic body)
         {
-            using(var db = new BlogContext())
+            string json = body.blogPost.ToString();
+            var model = JsonConvert.DeserializeObject<UpdatePostViewModel>(json);
+            using (var db = new BlogContext())
             {
                 var updated = db.UpdatePost(id, new Post() { Title = model.Title, Description = model.Description, Body = model.Body });
                 if(updated!=null)
