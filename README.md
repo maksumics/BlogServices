@@ -7,8 +7,60 @@
 #### When clone project, first need to install some nuget packages that package manager will automaticly detect, then run command update-databse. This will create database "BlogDatabase" and seed some blog posts and tags. After that api is ready for usage. 
 ### GET api/posts
 #### Return all posts ordered by most recent.
+```
+{
+    "blogPosts": [
+        {
+            "Slug": "apple-confirms-the-hybrid-workplace-is-here-to-stay",
+            "Title": "Apple confirms the hybrid workplace is here to stay",
+            "Description": "\"It would seem that work from home and the productivity of working from home will remain very critical, \" said Apple CEO Tim Cook.",
+            "Body": "Work from home ‘very critical’Cook's comments came as he was discussing his company’s record-breaking Q2 21 results. “It seems like many companies will be operating in a hybrid kind of mode,” he said about record-setting Mac and iPad sales. “And so, it would seem that work from home and the productivity of working from home will remain very critical.”",
+            "CreatedAt": "2021-05-03T00:35:06.44",
+            "UpdatedAt": "2021-05-03T00:35:06.44",
+            "Tags": [
+                "mobile",
+                "apple",
+                "macos",
+                "ipad",
+                "remote"
+            ]
+        },
+        {
+            "Slug": "internet-trends-2018",
+            "Title": "Internet Trends 2018",
+            "Description": "Ever wonder how?",
+            "Body": "An opinionated commentary, of the most important presentation of the year",
+            "CreatedAt": "2021-05-03T00:35:06.44",
+            "UpdatedAt": "2021-05-03T00:35:06.44",
+            "Tags": [
+                "trends",
+                "innovation",
+                "2018"
+            ]
+        }
+    ],
+    "postsCount": 2
+}
+```
 ### GET api/posts/:slug
 #### This will return a single post by slug.
+```
+{
+    "blogPost": {
+        "Slug": "internet-trends-2018",
+        "Title": "Internet Trends 2018",
+        "Description": "Ever wonder how?",
+        "Body": "An opinionated commentary, of the most important presentation of the year",
+        "CreatedAt": "2021-05-03T00:35:06.44",
+        "UpdatedAt": "2021-05-03T00:35:06.44",
+        "Tags": [
+            "trends",
+            "innovation",
+            "2018"
+        ]
+    }
+}
+```
 ### GET api/posts/?tagName=
 #### Return all posts where certain tag is listed.
 ### POST api/posts
