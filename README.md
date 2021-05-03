@@ -5,6 +5,9 @@
 
 ## Instruction for using
 #### When clone project, first need to install some nuget packages that package manager will automaticly detect. If your choice is LocalDB then create folder "App_Data" in BlogServices/BlogServices and run command update-databse. This will create database "BlogDatabase" and seed some blog posts and tags.  In case of SQL Server Express, please uncomment line "13" in web.config - connection string, and edit connection string if needed. Default is "localhost" server, named instance "SQLEXPRESS", and integrated security. After that api is ready for usage.
+#### Hint - possible error:
+#### While testing this on few machines, i have struggled with this error: "Could not find a part of the path … bin\roslyn\csc.exe", and found this is solution: run "Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r" in Package Manager Console.
+
 ### GET api/posts
 #### Return all posts ordered by most recent.
 ```
