@@ -50,6 +50,23 @@
                         new Tag() { TagName = "innovation" },
                         new Tag() { TagName = "2018" }
                     }
+                },
+                new Post()
+                {
+                    Title = "Augmented Reality iOS Application",
+                    Description = "Application Guard for Office is now available in public preview!",
+                    Body = @"Files from the internet and other potentially unsafe locations can contain viruses, worms, or other kinds of malware that can harm your users’ computer and data. To help protect your users, Office opens files from potentially unsafe locations in Application Guard, a secure container that is isolated from the device through hardware-based virtualization. ",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Slug = "augmented-reality-ios-application",
+                    Tags = new List<Tag>()
+                    {
+                        new Tag() { TagName = "ios" },
+                        new Tag() { TagName = "apple" },
+                        new Tag() { TagName = "mobile" },
+                        new Tag() { TagName = "application" },
+                        new Tag() { TagName = "public-preview" }
+                    }
                 }
                 );
 

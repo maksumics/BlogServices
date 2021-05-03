@@ -97,11 +97,18 @@ namespace BlogServices.Models
                     builder.Append(c);
             }
             var slug = builder.ToString().Replace(' ', '-').ToLower();
-            var sameSlug = this.Posts.Where(x => x.Slug == slug).SingleOrDefault();
-            if (sameSlug != null)
+            var sameSlug = new List<Post>();
+            do
             {
-                slug += '-';
-                slug += '2';
+                sameSlug = this.Posts.Where(x => x.Slug == slug).ToList();
+                if(sameSlug.Count > 0)
+                {
+                    slug += '-';
+                    slug += sameSlug.Count + 1;
+                }
+            } while (sameSlug.Count > 0);
+            { 
+                
             }
             return slug;
         }

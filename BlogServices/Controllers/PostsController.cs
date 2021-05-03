@@ -36,7 +36,7 @@ namespace BlogServices.Controllers
                     });
                     foreach (var _tag in item.Tags)
                     {
-                        _listPosts.Last().Tags.Add(_tag.TagName);
+                        _listPosts.Last().TagList.Add(_tag.TagName);
                     }
                 }
             }
@@ -66,7 +66,7 @@ namespace BlogServices.Controllers
                     });
                     foreach (var _tag in item.Tags)
                     {
-                        _listPosts.Last().Tags.Add(_tag.TagName);
+                        _listPosts.Last().TagList.Add(_tag.TagName);
                     }
                 }
             }
@@ -94,7 +94,7 @@ namespace BlogServices.Controllers
                     post.UpdatedAt = _post.UpdatedAt;
                     foreach (var _tag in _post.Tags)
                     {
-                        post.Tags.Add(_tag.TagName);
+                        post.TagList.Add(_tag.TagName);
                     }
                 }
             }
@@ -117,7 +117,7 @@ namespace BlogServices.Controllers
                     item.Body = post.Body;
                     item.Description = post.Description;
                     item.Title = post.Title;
-                    item = db.InsertPost(item, post.Tags);
+                    item = db.InsertPost(item, post.TagList);
                     post.Slug = item.Slug;
                     post.CreatedAt = item.CreatedAt;
                     post.UpdatedAt = item.UpdatedAt;

@@ -11,7 +11,7 @@ namespace BlogServices.ViewModels
     {
         public PostViewModel()
         {
-            this.Tags = new List<string>();
+            this.TagList = new List<string>();
         }
         public string Slug { get; set; }
         [Required]
@@ -22,7 +22,7 @@ namespace BlogServices.ViewModels
         public string Body { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public List<string> Tags { get; set; }
+        public List<string> TagList { get; set; }
 
     }
 }
